@@ -12,7 +12,7 @@ const sources = [
   },
   {
     name: "INDEC",
-    description: "IPC, CBA, CBT, ICC, Datos Censales.",
+    description: "IPC, CBA, CBT, ICC, SMVM, Datos Censales.",
     logo: "/Logo_Indec1.png",
     url: "https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31",
   },
@@ -40,6 +40,12 @@ const sources = [
     description: "Registro de personas desaparecidas (SIFEBU).",
     logo: "/Logo_seguridad.png",
     url: "https://www.argentina.gob.ar/seguridad/personasextraviadas",
+  },
+  {
+    name: "Ámbito",
+    description: "Riesgo País.",
+    logo: "/logo_ambito.webp",
+    url: "https://www.ambito.com/contenidos/riesgo-pais.html",
   },
 ]
 
@@ -81,7 +87,7 @@ export function DataSources() {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           className="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
@@ -91,7 +97,7 @@ export function DataSources() {
           {sources.map((source) => (
             <motion.div key={source.name} variants={itemVariants}>
               <Card className="group h-full bg-card/40 backdrop-blur-md border hover:border-primary/40 border-border/50 text-card-foreground transition-all duration-300 hover:shadow-[0_0_20px_rgba(var(--primary),0.05)] hover:-translate-y-1 overflow-hidden">
-                <CardContent className="p-6 flex flex-col items-center"> 
+                <CardContent className="p-6 flex flex-col items-center">
                   <a
                     href={source.url}
                     target="_blank"
