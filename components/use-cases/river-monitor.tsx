@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
+import { apiFetch } from "@/lib/api"
 import { motion, AnimatePresence } from "framer-motion"
 import { 
   Waves, 
@@ -60,7 +61,7 @@ export function RiverMonitor() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch("/v1/rios")
+        const res = await apiFetch("/v1/rios")
         const json: any = await res.json()
         const riverData = json.data?.rios || []
         setData(riverData)

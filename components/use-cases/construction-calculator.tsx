@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { apiFetch } from "@/lib/api"
 import { motion, AnimatePresence } from "framer-motion"
 import { 
   HardHat, 
@@ -43,7 +44,7 @@ export function ConstructionCalculator() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch("/v1/construccion")
+        const res = await apiFetch("/v1/construccion")
         if (!res.ok) throw new Error("Error al obtener datos")
         const json = await res.json()
         setData(json.data)

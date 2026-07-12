@@ -4,6 +4,7 @@ import { Github, Coffee, Heart, Mail } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
+import { apiFetch } from "@/lib/api"
 
 interface PersonaDesaparecida {
   nombre: string
@@ -26,7 +27,7 @@ export function Footer() {
   useEffect(() => {
     async function fetchPersona() {
       try {
-        const res = await fetch("/v1/personas-desaparecidas")
+        const res = await apiFetch("/v1/personas-desaparecidas")
         if (!res.ok) return
         const json = await res.json()
         const personas: PersonaDesaparecida[] = json?.data?.personas ?? []

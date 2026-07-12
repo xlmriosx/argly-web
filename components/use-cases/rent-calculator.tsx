@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
+import { apiFetch } from "@/lib/api"
 import { motion, AnimatePresence } from "framer-motion"
 import { format, addMonths, subMonths, isAfter, isBefore, parseISO, startOfMonth } from "date-fns"
 import { es } from "date-fns/locale"
@@ -50,8 +51,8 @@ export function RentCalculator() {
       setLoading(true)
       try {
         const [iclRes, ipcRes] = await Promise.all([
-          fetch("/v1/icl?historico=true"),
-          fetch("/v1/ipc?historico=true")
+          apiFetch("/v1/icl?historico=true"),
+          apiFetch("/v1/ipc?historico=true")
         ])
         const [iclJson, ipcJson] = await Promise.all([iclRes.json(), ipcRes.json()])
         setIclData(iclJson.data || [])

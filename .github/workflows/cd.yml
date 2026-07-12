@@ -1,0 +1,17 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    uses: xlmriosx/shared-library/.github/workflows/AWS-S3-deploy.yml@main
+    with:
+      working-directory: '.'
+      node-version: '20'
+      aws-region: 'sa-east-1'
+      s3-bucket: 'argly-web-static'
+    secrets:
+      AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}

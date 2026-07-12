@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { apiFetch } from "@/lib/api"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 import { motion } from "framer-motion"
@@ -40,7 +41,7 @@ export function IPCChart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/v1/ipc?historico=true")
+        const response = await apiFetch("/v1/ipc?historico=true")
         if (!response.ok) throw new Error("Error fetching IPC data")
         
         const result: ApiResponse = await response.json()

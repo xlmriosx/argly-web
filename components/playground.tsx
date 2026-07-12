@@ -12,7 +12,7 @@ import { format } from "date-fns"
 import { es } from "date-fns/locale"
 
 const API_BASE_URL = "https://api.argly.com.ar"
-const API_FETCH_BASE = "" // relative — proxied via Next.js rewrites in dev
+const API_FETCH_BASE = "https://api.argly.com.ar" // absolute url for static export
 
 const provincias = [
   { value: "buenos-aires", label: "Buenos Aires" },
